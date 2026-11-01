@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: razzia-quiz
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PORT
+        value: "3000" # nginx in the image listens on 3000
+      - key: MANAGER_PASSWORD
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
